@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<% pie_chart [["Travel", 30], ["Lunch", 50], ["Phone credit", 20], ["Leisure", 40]] %> 
+
+<% bleh %>
+<style>
+  blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    margin-left: 60px;
+    color:white;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    padding-bottom: 25px;
+    max-height: 100%;
+    
+}
+
+.quotation-mark{
+  text-align: center;
+    height: 150px;
+    font-weight: bold;
+    font-size:40px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    margin-top: -70px;
+    padding-bottom: 30px;
+    font-size: 40px;
+    text-align: center;
+}
+
+
+.on_the_spot_editing form{
+
+  font-size: 0.3em;
+  color: black;
+  background-color: red;
+
+}
+.on_the_spot_editing button{
+  visibility: hidden;
+  display:none;
+}
+
+
+</style>
+
+
+
+<% @num_columns.times do |budget| %>
+<% col_name = comebacktonameme[budget] %>
+
+<% col_name %>
+<% otherval = @budget.public_send(col_name) if @budget.respond_to? col_name  %>
+
+  <%= render 'shared/budget_item',  :val1 =>  col_name, :val2 =>  otherval %>
+
+
+  <% budget %> 
+
+<% end %>
+
+
+
+
+<%= link_to 'Edit all at the same time', edit_budget_path(@budget) %> |
+<%= link_to 'Back', budgets_path %>
+
+
+
+
+<script>
+  $(".on_the_spot_editing").focus(function(){
+    //$(".on_the_spot_editing span").css("color", "red");
+    alert("ddddddd")
+})
+</script>

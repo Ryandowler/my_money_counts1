@@ -1,0 +1,48 @@
+<h1>New Budget</h1>
+<style>
+/*form, .hidden{visibility: hidden;}*/
+
+</style>
+<!-- get the fields that the user wishes to populate, split the recieved string up and left with array -->
+<% chosen_fields = params['chosen_fields'] %>
+<div class="recievedParams"><%= chosen_fields %></div>
+
+<!-- count number of items revieved -->
+<div class="hidden numParams">
+	<% if chosen_fields %>
+	<%= chosen_fields.split.size %>
+	<% end %>
+		
+	</div>
+
+<script>
+	$(document).ready(function() {
+		var array = [];
+		var elements = $(); //stores the fields
+		
+		var recievedParams =  $('.recievedParams').text(); //budget items(fields) chosen 
+		var numParams =  parseInt($('.numParams').text()); //the number of budget items chosen 
+
+		var $j_object = $(".field"); //list of all page fields
+
+		//remove all but first 3 fields (title, money in, week) 
+		$j_object.each( function(i) {	 if(i > 2){ $(this).remove(); }    }); 
+
+		//----rename allFields later its confussing
+
+		//loop through all fileds to find the ones chosen by user
+		for (var i = 0; i<$j_object.length; i++ ){
+			var allFields = $($j_object[i], "label").text();
+			if (recievedParams.toLowerCase().trim().indexOf(allFields.toLowerCase().trim()) >= 0){
+				var hhl = $j_object[i];
+				$(".fields").append(hhl.outerHTML);
+			}
+		}
+	});
+</script>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', budgets_path %>
+
+

@@ -1,0 +1,66 @@
+<%= form_for(@budget) do |f| %>
+  <% if @budget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+      <ul>
+      <% @budget.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="fields" style="border: 1px solid black;">
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, id: "ttieee" %>
+  </div>
+  <div class="field">
+    <%= f.label :money_in %><br>
+    <%= f.text_field :money_in %>
+  </div>
+  <div class="field">
+    <%= f.label :week %><br>
+    <%= f.number_field :week %>
+  </div>
+  <div class="field">
+    <%= f.label :savings %><br>
+    <%= f.text_field :savings %>
+  </div>
+  <div class="field">
+    <%= f.label :bills %><br>
+    <%= f.text_field :bills %>
+  </div>
+  <div class="field">
+    <%= f.label :lunches %><br>
+    <%= f.text_field :lunches %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :travel %><br>
+    <%= f.text_field :travel %>
+  </div>
+  <div class="field">
+    <%= f.label :clothing %><br>
+    <%= f.text_field :clothing %>
+  </div>
+  <div class="field">
+    <%= f.label :activities %><br>
+    <%= f.text_field :activities %>
+  </div>
+  <div class="field">
+    <%= f.label :entertainment %><br>
+    <%= f.text_field :entertainment %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_fund %><br>
+    <%= f.text_field :emergency_fund %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

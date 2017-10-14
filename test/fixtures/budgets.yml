@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  money_in: 9.99
+  week: 1
+  savings: 9.99
+  bills: 9.99
+  lunches: 9.99
+  phone: 9.99
+  travel: 9.99
+  clothing: 9.99
+  activities: 9.99
+  entertainment: 9.99
+  emergency_fund: 9.99
+
+two:
+  title: MyString
+  money_in: 9.99
+  week: 1
+  savings: 9.99
+  bills: 9.99
+  lunches: 9.99
+  phone: 9.99
+  travel: 9.99
+  clothing: 9.99
+  activities: 9.99
+  entertainment: 9.99
+  emergency_fund: 9.99
