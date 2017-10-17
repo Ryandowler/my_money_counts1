@@ -1,11 +1,145 @@
-<h1>New Budget</h1>
 <style>
 /*form, .hidden{visibility: hidden;}*/
 
+/* wheel */
+.spinWheel {
+    height: 490px;
+    margin: auto;
+    width: 600px;
+    position: relative;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
+}
+
+
+.spinWheel div {
+    color: #fff;
+    font-size: 5em;
+    height: 150px;
+    line-height: 150px;
+    position: absolute;
+    text-align: center;
+    width: 300px;
+}
+
+.first {
+    background: red;
+}
+
+.second {
+    background: green;
+}
+
+.third {
+    background: blue;
+}
+
+.first {
+    left: 50%;
+    margin-left: -150px;
+    top: 0;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+}
+
+.second {
+    bottom: 85px;
+    right: 0;
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+
+.third {
+    bottom: 85px;
+    left: 0;
+    -webkit-transform: rotate(240deg);
+    -moz-transform: rotate(240deg);
+    -o-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+
+/* ./wheel */
+
+/* wheel additional (after structure) */
+.spinWheel input{
+	width: 90%;
+    height: 90%;
+    color:red;
+}
+
+/* rest of page elements */
+#title{
+	font-size: 5em;
+	text-align: center;
+}
+
+
+
+
+/* cursor */
+.cursor {
+	position: relative;
+}
+.cursor	i {
+	position: absolute;
+	width: 3px;
+	height: 80%;
+	background-color: red;
+	left: 10%;
+	top: 10%;
+	animation-name: blink;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+
+.cursor input:focus + i {
+	display: none;
+}
+
+@keyframes blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+/* ./ cursor */
+
 </style>
+
+
+
+
+
+
+<h1 id="title">Title</h1>
+
+
+
+<div class="spinWheel cursor" >
+    <div class="first"><input id="currentField1" type="text" class="rq-form-element"><i></i></div>
+    <div class="second"><input id="currentField3" type="text" ></div>
+    <div class="third"><input id="currentField2" type="text" ></div>
+</div>
+
+
+<%= button_tag "Next", onclick: 'spinWheel();'%>
+
+
+
+
+
 <!-- get the fields that the user wishes to populate, split the recieved string up and left with array -->
 <% chosen_fields = params['chosen_fields'] %>
-<div class="recievedParams"><%= chosen_fields %></div>
+<div class="recievedParams" style="margin-top: 100px;"><%= chosen_fields %></div>
 
 <!-- count number of items revieved -->
 <div class="hidden numParams">
@@ -16,14 +150,24 @@
 	</div>
 
 <script>
-	$(document).ready(function() {
+	var degrees = 0;
+	var $j_object;
+	var wheelValues = []; //vaues user inputted to the wheels fields
+	var numSpinTimes = 1; //how many times the wheel spun; how manny inputed values
+	var recievedParams //budget items(fields) chosen 
+	var curIteration = 0; //keeps track of current number of calls to the 'addWheelValuesToForm' function to simulate iteration
+	var numParams = 0;
+
+	// ** get params and output needed fields **
+	$(document).ready(function() {    //DO I NEED TO THIS 1/2
 		var array = [];
 		var elements = $(); //stores the fields
-		
-		var recievedParams =  $('.recievedParams').text(); //budget items(fields) chosen 
-		var numParams =  parseInt($('.numParams').text()); //the number of budget items chosen 
 
-		var $j_object = $(".field"); //list of all page fields
+		recievedParams =  $('.recievedParams').text(); //budget items(fields) chosen 
+		numParams =  parseInt($('.numParams').text()); //the number of budget items chosen 
+
+		$j_object = $(".field"); //list of all page fields
+
 
 		//remove all but first 3 fields (title, money in, week) 
 		$j_object.each( function(i) {	 if(i > 2){ $(this).remove(); }    }); 
@@ -38,7 +182,100 @@
 				$(".fields").append(hhl.outerHTML);
 			}
 		}
+
+		//-- make the form invisible, user interacts with wheel, wheel values put in this form and submitted--
+		//$( ".fields" ).css("display", "none");
+
+		//sets the focus on the first field ONE time if any keyboard input at all / remove styled cursor
+		$( "body" ).one( "keypress", function() {
+			$('#currentField1').focus(); 
+			$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
+		});
+
+	}); //DO I NEED TO THIS 2/2
+
+
+	//spin the wheel
+	function spinWheel(){ degrees+=120; $('.spinWheel').css('transform', 'rotate(' + degrees + 'deg)'); }
+
+
+	function changeWheelFieldId(){
+
+	}
+
+
+
+
+	//+++++ check if enter is pressed in .spinWheel input then call spinWheel();
+	$('.spinWheel').on("keypress", function(e) {
+		
+        if (e.keyCode == 13) {
+
+
+        	
+        	var elemId = "#currentField" + numSpinTimes;
+        	var nextElemId = "#currentField" + (numSpinTimes + 1);
+        	var value = $(elemId).val();
+        	//alert(elemId + " has the value of: " + value );
+            
+            if (value == null || value == "" || value == " ") {	value = 0;	} //default value = 0
+            //alert(value);
+            wheelValues.push(value);
+            spinWheel();
+
+
+            //console.log("numSpinTimes: " + numSpinTimes);
+            //console.log("field: " + elemId);
+    
+           
+            addWheelValuesToForm(wheelValues); //change title (of which field is now being filled) / add values to form
+
+            //reset ids so only 3 fields are needed
+            if (numSpinTimes == 3)  { numSpinTimes = 1; nextElemId = "#currentField" + 1; } //set back to 1 if its 3
+            else { numSpinTimes = numSpinTimes + 1; } //increase to use to acces the next input field it rotated to
+            
+            $(elemId).val("");	// reset the field value to blank
+            $(nextElemId).focus();	// focus the cursor on the next field spinning around
+
+        	//console.log("Next field: " + nextElemId);
+            //console.log(wheelValues);
+
+            return false; // prevent the button click from happening
+        }
 	});
+
+	// add the wheel values to the hidden form
+	function addWheelValuesToForm(wheelValues){
+
+		var input = $('.fields').find('input')[curIteration]; //get the input field for this call (like iteration, goes through 1by1)
+		input.value = wheelValues[curIteration]; //put val from wheel to its corresponding field eg (title into title field)
+		curIteration += 1;	//increase variable to keep track of number of calls this method gets  (to iterate through object)
+
+		//--- display labels(field names) for wheel spins ---
+		var label = $('.fields').find('div:nth-child('+(curIteration + 1)+')').text().trim(); //get the label (starts at index 2 					becasue first label is present in html and because this function runs after field has been used) ./ 
+		$('#title').text(label); //change the title above wheel 
+
+		//--check if this function has been called as many timmes as there are passed http params (num of chosen budget fields)--
+		// +3 is accunting for the mandatory fields that are on every form
+		if(curIteration == (numParams + 3)){
+			$('.spinWheel').hide();
+		}
+	}
+
+
+
+//add code to 
+//2check if any letters are being pressed or any keyboard input to then autofocus field
+
+$('#currentField1').click(function(){
+	$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
+});
+
+
+
+
+
+
 </script>
 
 <%= render 'form' %>
