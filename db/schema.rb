@@ -13,11 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20171014005019) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "budgets", force: :cascade do |t|
     t.string   "title"
     t.decimal  "money_in"
     t.integer  "week"
-    t.decimal  "savings",        default: 0.0
+    t.decimal  "savings"
     t.decimal  "bills",          default: 0.0
     t.decimal  "lunches",        default: 0.0
     t.decimal  "phone",          default: 0.0
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171014005019) do
     t.integer  "user_id"
   end
 
-  add_index "budgets", ["user_id"], name: "index_budgets_on_user_id"
+  add_index "budgets", ["user_id"], name: "index_budgets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,7 +51,8 @@ ActiveRecord::Schema.define(version: 20171014005019) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "budgets", "users"
 end

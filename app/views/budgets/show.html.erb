@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 
+<!-- excludes nil columns (will exclude created_and other defaults too ) --> 
+<%= pie_chart @budget.dup.attributes.keep_if{|k,v| !v.nil?} %>
 
-<% pie_chart [["Travel", 30], ["Lunch", 50], ["Phone credit", 20], ["Leisure", 40]] %> 
+
+<% line_chart Budget.where(id: 16).group(:savings,  :bills).count %>
 
 <% bleh %>
 <style>
@@ -74,10 +77,10 @@
 <% otherval = @budget.public_send(col_name) if @budget.respond_to? col_name  %>
 
 <!-- check which ones are not filled in to give it a different css class -->
-<% is_blank =  otherval < 1 ? 'itsBlank' :  'notBlank'  %> 
+<%# is_blank =  otherval < 1 ? 'itsBlank' :  'notBlank'  %> 
 
   <!-- render the partial and pass it parameters (column name and its value) -->
-  <%= render 'shared/budget_item',  :val1 =>  col_name, :val2 =>  otherval, :val3 =>  is_blank %>
+  <%= render 'shared/budget_item',  :val1 =>  col_name, :val2 =>  otherval, :val3 =>  "is_blank" %>
 
 
   <% budget %> 
