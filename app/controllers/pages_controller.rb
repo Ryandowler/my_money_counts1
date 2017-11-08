@@ -6,5 +6,9 @@ class PagesController < ApplicationController
 
   end
 
+  def front
+
+  end
+
   
 end

@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 end
 
   get 'pages/home'
-
   get 'pages/about'
+  get 'pages/front'
 
 
 
@@ -24,7 +24,7 @@ end
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#front'
 
   # Example of regular route:
  
