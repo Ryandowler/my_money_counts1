@@ -21,6 +21,7 @@ var array = [];
 			$("#submitBtn").attr("href", newString)//chnage the a tag to have the new link
 		}
 
+		//MAKE THE FOLLOWING TEO FUNCTIONS MORE POLYMORPHIC !!!!!!!!!!!!!!
 		function submitClicked(){
 
 			get_chosen_fields();
@@ -42,6 +43,18 @@ var array = [];
 		    //$('#list').css("display", "block"); //show the list and continue button
 		}
 
+		function updateFinalList(){
+			get_chosen_fields();
+			createLink();
+			$('#prettyList').empty(); //
+			$.each(array, function(index, value) {
+				//change the html to have the values of each chosen field
+				listItem = '<div class="row"><div class="[ col-xs-6  ]" style="margin-left:-30px;"><ul class="event-list"><li><time datetime="2014-07-20"><span class="day">' + (index +1) + '</span></time><div class="info"><h2 class="title">' + value + '</h2></div></li></ul></div>';
+
+			$('#prettyList').append(listItem);//output item
+		    });
+		}
+
 		function showDragAndDrop(){
 			$( ".examples" ).toggle( "fold" );
 
@@ -49,8 +62,14 @@ var array = [];
 			var theList = $('#list');
 			if (theList.is(':visible')) {
 				$(theList).css("display", "none"); 
+				$('#stickyBtnIcon').removeClass("fa-chevron-down");
+				$('#stickyBtnIcon').addClass("fa-chevron-up");
 			}else {
 				$(theList).css("display", "block"); 
+				$('#stickyBtnIcon').removeClass("fa-chevron-up");
+				$('#stickyBtnIcon').addClass("fa-chevron-down");
+				//submitClicked(); //get newly chosen items if user clicks arrow instead of the button (that gets chosen fields)
+				updateFinalList();
 			}
 			array = [];
 		}
