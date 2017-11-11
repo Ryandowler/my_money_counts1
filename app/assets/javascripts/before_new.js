@@ -21,7 +21,7 @@ var array = [];
 			$("#submitBtn").attr("href", newString)//chnage the a tag to have the new link
 		}
 
-		//MAKE THE FOLLOWING TEO FUNCTIONS MORE POLYMORPHIC !!!!!!!!!!!!!!
+		//MAKE THE FOLLOWING TwO FUNCTIONS MORE POLYMORPHIC !!!!!!!!!!!!!!
 		function submitClicked(){
 
 			get_chosen_fields();
@@ -41,6 +41,8 @@ var array = [];
 		    });
 
 		    //$('#list').css("display", "block"); //show the list and continue button
+
+		    finalListIsEmpty(); //checks if final list is emoty and displays error message
 		}
 
 		function updateFinalList(){
@@ -72,4 +74,19 @@ var array = [];
 				updateFinalList();
 			}
 			array = [];
+			finalListIsEmpty(); //checks if final list is emoty and displays error message
+		}
+
+		//checks if final list is empty and displays error message 
+		function finalListIsEmpty(){
+			//user selected at least 1 item
+			if($('#prettyList li').length > 0){
+		    	$('.listIsEmpty').css("display", "none");
+		    	$('#submitBtn').show();
+			}
+			//user didnt choose any items but clicked button to proceed
+			else{ 
+				$('.listIsEmpty').css("display", "block");
+		    	$('#submitBtn').hide();
+			}
 		}

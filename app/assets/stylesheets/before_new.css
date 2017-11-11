@@ -147,3 +147,7 @@
 	font-size: 2vw; /* adjusts text tize to fit viewport */
 	height: 50px;
 }
+
+
+.listIsEmpty{ display: none; }
+#emptyListMessage{ margin-top: 50px; }

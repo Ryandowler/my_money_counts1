@@ -33,6 +33,15 @@
 	<div class="row" style="padding-bottom: 20px; padding-top: 50px;">
 		<div class="col-xs-6" style="background-color: red; text-align: center;">
 			<h2 class="">This budget:</h2>
+			<div class="alert alert-warning listIsEmpty" >
+			  <strong> <h3>It looks like you forgot to choose some items to make your budget with</h3></strong>
+			  <div id="emptyListMessage" class="row">
+			  	<h4>Would you like to to do that now?</h4>
+			  	<button type="button" class="btn btn-success col-md-5 col-md-push-1" 
+			  			style="margin-right: 5px;" onclick="showDragAndDrop()">Yes</button>
+			  	<button type="button" class="btn btn-danger col-md-5 col-md-push-1" data-toggle="modal" data-target=".bs-example-modal-lg">No I don't want to make a budget</button>
+			  </div>
+			</div>
 		</div>
 	</div>
 	<div class="container" id="prettyList"></div>
@@ -42,6 +51,15 @@
 <%= javascript_include_tag   'before_new'  %>
 <%= javascript_include_tag   'dragula'  %>
 <%= javascript_include_tag   'example.min'  %>
+
+<!-- the aim is to be able to pass differtnt path/routes to the variables below and dynamically link to them using the partial -->
+<% errorMessage = "Are you sure you want to leave this page?"  %>
+<% yesPath1 = root_path  %> <!-- not working as inteded yet -->
+<% yesPath2 = "Yes I want to got to Y"  %> <!-- not working as inteded yet -->
+
+
+ <!-- render the Error partial and pass it parameters (column name and its value) -->
+ <%= render 'shared/errorModal',  :val1 =>  errorMessage,  :val2 =>  yesPath1,  :val3 =>  yesPath2 %>
 
 
 
