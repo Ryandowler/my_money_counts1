@@ -1,0 +1,6 @@
+<% if !user_signed_in? %>
+	You are not Logged in yet. <br><br>
+	<%= link_to('Login here', new_user_session_path)  %>  
+<% else %>
+	<h1>x's Profile</h1>
+<% end %>

@@ -16,6 +16,7 @@ end
   get 'pages/home'
   get 'pages/about'
   get 'pages/front'
+  get 'pages/profile'
 
 
 
