@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+	before_filter :authenticate_user!
+
   def home
   end
 
@@ -11,6 +13,12 @@ class PagesController < ApplicationController
   end
 
   def profile
+
+  	 if user_signed_in?
+      #get the orgs belloning to the user
+      #@users_books = Book.where(["user_id = ?", current_user.id])
+      @user = current_user
+   end
 
   end
 

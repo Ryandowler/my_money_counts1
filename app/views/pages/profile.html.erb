@@ -2,5 +2,7 @@
 	You are not Logged in yet. <br><br>
 	<%= link_to('Login here', new_user_session_path)  %>  
 <% else %>
-	<h1>x's Profile</h1>
+	<h1><%= @user.first_name %>'s Profile</h1>
+
+	<%= link_to('Edit My Account details', edit_user_registration_path)  %>
 <% end %>

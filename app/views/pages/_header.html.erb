@@ -25,10 +25,11 @@
                     <li role="separator" class="divider"></li>
                     <hr>
                     <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
+                    <li> <%= link_to "Change account details", edit_user_registration_path  %> </li>
                     <li><%= link_to('Logout', destroy_user_session_path) %></li>    
                   <% else %>
                     <li> <%= link_to('Login', new_user_session_path)  %> </li>
+                    <li> <%= link_to('Sign up', new_user_registration_path)  %> </li>
                   <% end %>
                   </li>
                 </ul>
