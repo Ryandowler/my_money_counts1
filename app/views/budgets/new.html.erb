@@ -123,11 +123,11 @@
     <div class="third"><input id="currentField2" type="text" ></div>
 </div>
 
-<%= button_tag "Next", onclick: 'spinWheel();'%>
+<%# button_tag "Next", onclick: 'spinWheel();'%>
 
 <!-- get the fields that the user wishes to populate, split the recieved string up and left with array -->
 <% chosen_fields = params['chosen_fields'] %>
-<div class="recievedParams" style="margin-top: 100px;"><%= chosen_fields %></div>
+<div class="recievedParams" style="margin-top: 100px; display: none;"><%= chosen_fields %></div>
 
 <!-- count number of items revieved -->
 <div class="hidden numParams">
@@ -251,17 +251,12 @@
 	}
 
 
-
 //add code to 
-//2check if any letters are being pressed or any keyboard input to then autofocus field
+//check if any letters are being pressed or any keyboard input to then autofocus field
 
 $('#currentField1').click(function(){
 	$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
 });
-
-
-
-
 
 
 </script>
