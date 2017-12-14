@@ -6,3 +6,10 @@
 
 	<%= link_to('Edit My Account details', edit_user_registration_path)  %>
 <% end %>
+
+
+
+<% @users_budgets.each do |o| %>
+	<div style="border: 1px solid black"><%= o.title %></div>
+	
+<% end  %>

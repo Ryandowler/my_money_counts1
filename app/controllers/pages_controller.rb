@@ -16,8 +16,8 @@ class PagesController < ApplicationController
 
   	 if user_signed_in?
       #get the orgs belloning to the user
-      #@users_books = Book.where(["user_id = ?", current_user.id])
       @user = current_user
+      @users_budgets = Budget.where(["user_id = ?", @user.id])
    end
 
   end

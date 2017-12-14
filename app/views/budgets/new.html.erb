@@ -115,14 +115,7 @@
 
 </style>
 
-
-
-
-
-
 <h1 id="title">Title</h1>
-
-
 
 <div class="spinWheel cursor" >
     <div class="first"><input id="currentField1" type="text" class="rq-form-element"><i></i></div>
@@ -130,12 +123,7 @@
     <div class="third"><input id="currentField2" type="text" ></div>
 </div>
 
-
 <%= button_tag "Next", onclick: 'spinWheel();'%>
-
-
-
-
 
 <!-- get the fields that the user wishes to populate, split the recieved string up and left with array -->
 <% chosen_fields = params['chosen_fields'] %>
@@ -189,7 +177,7 @@
 		//sets the focus on the first field ONE time if any keyboard input at all / remove styled cursor
 		$( "body" ).one( "keypress", function() {
 			$('#currentField1').focus(); 
-			$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
+			$('	.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
 		});
 
 	}); //DO I NEED TO THIS 2/2
