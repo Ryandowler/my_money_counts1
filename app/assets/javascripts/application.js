@@ -15,4 +15,4 @@
 //= require chartkick
 //= require turbolinks
 //= require on_the_spot
-//= require_tree .
+// require_tree .

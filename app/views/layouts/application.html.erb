@@ -2,54 +2,20 @@
 	<html>
 		<head>
 		  <title>MyMoneyCounts1</title>
-			<!-- jquery -->
-		  	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
-		  		crossorigin="anonymous"></script>
-		  	<!-- bootstrap css & javascript -->
-			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-		  	<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-
+		    <!-- application js -->
+  			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		    <!-- application css -->
 		  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		  	<% csrf_meta_tags %>
-
-		  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-			<!-- for navbar remove and put in css file later -->
-			<style>
-				ol, ul {
-				list-style: none;
-				}
-				/* pop up modal */
-				.modal {
-			    /*   display: block;*/
-			    padding-right: 0px;
-			    background-color: rgba(4, 4, 4, 0.8); 
-			    }
-			   
-				.modal-dialog {
-					top: 20%;
-					width: 100%;
-					position: absolute;
-				}
-				.modal-content {
-					border-radius: 0px;
-					border: none;
-					top: 40%;
-				}
-				.modal-body {
-				background-color: #0f8845;
-				color: white;
-				}
-
-				.errorMessageBtn{
-					margin-top: 100px;
-				}
-			 /* ./ pop up modal */  
-			</style>
+		  	<!-- bootstrap css  -->
+		  	<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel: "stylesheet", integrity:"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin: "anonymous" %>
+		  	<!-- Bootstrap js -->
+  			<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity: "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin: "anonymous" %>
+		  	<!-- font awsome -->
+		  	<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet", integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin: "anonymous" %>
+		  	<!-- Additional files -->
+		  	<!-- charts on show  -->
+  			<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  			<% csrf_meta_tags %>
 		</head>
 	<body>
 		<%= render 'pages/header' %>
