@@ -31,8 +31,9 @@ p {
 
 /* Links */
 a {
-    color: #3bc492;
+    color: #7b69eb;
     word-wrap: break-word;
+    font-weight: 400;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -72,7 +73,7 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background-color: #34495e;
+	background-color: #7b69eb;
 	padding-top: 60px;
 }
 

@@ -15,6 +15,14 @@
  *= require on_the_spot
  */
 
+.whiteFont{ color: white;}
+.purpleFont{ color: #7b69eb;}
+.font400{ font-weight: 400;}
+.font600{ font-weight: 600;}
+.marginTop20{ margin-top: 20px; }
+.greenBG{ background-color: #4ECDC4 }
+
+u{color: #7b69eb;}
  ol, ul { list-style: none; }
 /* pop up modal */
 .modal {
@@ -41,6 +49,11 @@ color: white;
 .errorMessageBtn{
 	margin-top: 100px;
 }
+
+#heroTitle1{ margin-left: -20px; }
+
+#intro h3{ font-weight: 600; }
+
 
 
 

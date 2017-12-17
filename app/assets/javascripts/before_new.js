@@ -35,7 +35,7 @@ var array = [];
 			//iterate through each chosen filds and output a list item for each
 			$.each(array, function(index, value) {
 				//change the html to have the values of each chosen field
-				listItem = '<div class="row"><div class="[ col-xs-6  ]" style="margin-left:-30px;"><ul class="event-list"><li><time datetime="2014-07-20"><span class="day">' + (index +1) + '</span></time><div class="info"><h2 class="title">' + value + '</h2></div></li></ul></div>';
+				listItem = '<div class="row"><div class="col-md-6 col-md-pull-2" style="margin-left: 30px;"><ul class="event-list"><li><time datetime="2014-07-20"><span class="day">' + (index +1) + '</span></time><div class="info"><h2 class="title">' + value + '</h2></div></li></ul></div>';
 
 			$('#prettyList').append(listItem);//output item
 		    });
@@ -51,7 +51,7 @@ var array = [];
 			$('#prettyList').empty(); //
 			$.each(array, function(index, value) {
 				//change the html to have the values of each chosen field
-				listItem = '<div class="row"><div class="[ col-xs-6  ]" style="margin-left:-30px;"><ul class="event-list"><li><time datetime="2014-07-20"><span class="day">' + (index +1) + '</span></time><div class="info"><h2 class="title">' + value + '</h2></div></li></ul></div>';
+				listItem = '<div class="row"><div class="col-md-6 col-md-pull-2" style="margin-left: 30px;"><ul class="event-list"><li><time datetime="2014-07-20"><span class="day">' + (index +1) + '</span></time><div class="info"><h2 class="title">' + value + '</h2></div></li></ul></div>';
 
 			$('#prettyList').append(listItem);//output item
 		    });
@@ -83,10 +83,12 @@ var array = [];
 			if($('#prettyList li').length > 0){
 		    	$('.listIsEmpty').css("display", "none");
 		    	$('#submitBtn').show();
+		    	$('#changeSomethingBtn').show();
 			}
 			//user didnt choose any items but clicked button to proceed
 			else{ 
 				$('.listIsEmpty').css("display", "block");
 		    	$('#submitBtn').hide();
+		    	$('#changeSomethingBtn').hide();
 			}
 		}

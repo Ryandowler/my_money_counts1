@@ -1,37 +1,36 @@
 <% stylesheet_link_tag   'dragula'  %>
 <%= stylesheet_link_tag   'before_new'  %>
-<style>
 
-</style>
 <!-- Ruby variables -->
 <% chosen_fields = "none" %>
 
 <button href="#" class="btn stickyBtn" onclick="showDragAndDrop();" data-toggle="tooltip" title="Hide or Show the Drag & Drop box"><i id="stickyBtnIcon" class=" fa fa-chevron-down fa-5x" ></i></button>
 
-<div class='examples'>
+<div class= "examples" style="margin-left:10px;">
 	<div class='parent'>
-		<h1>Choose your spending categories this week:</h1>
-		<ul id='right-defaults' class=' col-sm-12' style="border: 2px dashed green; min-height:200px; margin-bottom: 15px; padding: 10px;"> </ul>
-		<div class='wrapper col-sm-12'>
-			<ul id='left-defaults' class='col-sm-12' style="border: 1px solid black; min-height: 200px;">
-			    <li class="col-sm-3">savings</li>
-			    <li class="col-sm-3">bills</li>
-			    <li class="col-sm-3">lunches</li>
-			    <li class="col-sm-3">phone</li>
-			    <li class="col-sm-3">travel</li>
-			    <li class="col-sm-3">clothing</li>
-				<li class="col-sm-3">activities</li>
-			    <li class="col-sm-3">entertainment</li>
-			    <li class="col-sm-3">emergency fund</li>
+		<h1 style="text-align: center;">What categories are you <u>Budgeting</u> for this week:</h1>
+		<ul id='right-defaults' class='col-md-10 col-md-push-1' style="border: 2px dashed #7b69eb; min-height:200px; padding: 10px;"> </ul>
+		<div class='wrapper col-md-12'>
+			<ul id='left-defaults' class='col-md-12' style=" min-height: 200px;">
+			    <li class="col-md-4">Savings <%= image_tag "savings", class: "img img-responsive col-md-3" %> </li>
+			    <li class="col-md-4">Bills <%= image_tag "savings", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Lunches <%= image_tag "lunches", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Phone <%= image_tag "phone", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Travel <%= image_tag "travel", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Clothing <%= image_tag "clothing", class: "img img-responsive col-md-3" %></li>
+				<li class="col-md-4">Activities <%= image_tag "activities", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Entertainment <%= image_tag "entertainment", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4" style="font-size: 2em; line-height: 23px;">Emergency fund <%= image_tag "emergency", class: "img img-responsive col-md-3" %></li>
+			    <div class="col-md-12"><li class="col-md-6 col-md-push-3 whiteFont font600 marginTop20">Make up my own <br><%= image_tag "idea", class: "img img-responsive col-md-2 col-md-push-5 centered" %></li></div>
 			</ul>
 		</div>  
 	</div>
-	<button class="btn btn-primary btn-lg" onclick="submitClicked();"> I'm ready to make my budget </button>
+	<button class="btn btn-lg greenBG whiteFont" onclick="submitClicked();" style="margin-top: 50px; margin-right: 10px; float: right; margin-bottom: 5px;"> I'm ready to make my budget </button>
   </div>
 <!-- list -->
 <div id="list">
 	<div class="row" style="padding-bottom: 20px; padding-top: 50px;">
-		<div class="col-xs-6" style="background-color: red; text-align: center;">
+		<div class="col-xs-5" style="background-color: #7b69eb; text-align: center;">
 			<h2 class="">This budget:</h2>
 			<!-- alert shown to user if no items selected -->
 			<div class="alert alert-warning listIsEmpty" >
@@ -45,7 +44,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="container" id="prettyList"></div>
+	<div class="container" id="prettyList" style="padding-bottom: 50px;"></div>
+	<div id="changeSomethingBtn" onclick="showDragAndDrop()">Wait! I want to Change Something</div>
 	<%= link_to "continue", new_budget_path(:chosen_fields => chosen_fields), id: "submitBtn", class: "bounce" %>
 </div>
 

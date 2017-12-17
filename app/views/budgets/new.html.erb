@@ -1,3 +1,4 @@
+<!-- tidy this whole file when finished -->
 <style>
 /*form, .hidden{visibility: hidden;}*/
 
@@ -81,8 +82,6 @@
 	font-size: 5em;
 	text-align: center;
 }
-
-
 
 
 /* cursor */
@@ -181,25 +180,17 @@
 
 	}); //DO I NEED TO THIS 2/2
 
-
 	//spin the wheel
 	function spinWheel(){ degrees+=120; $('.spinWheel').css('transform', 'rotate(' + degrees + 'deg)'); }
-
 
 	function changeWheelFieldId(){
 
 	}
 
-
-
-
 	//+++++ check if enter is pressed in .spinWheel input then call spinWheel();
 	$('.spinWheel').on("keypress", function(e) {
 		
         if (e.keyCode == 13) {
-
-
-        	
         	var elemId = "#currentField" + numSpinTimes;
         	var nextElemId = "#currentField" + (numSpinTimes + 1);
         	var value = $(elemId).val();
@@ -210,10 +201,8 @@
             wheelValues.push(value);
             spinWheel();
 
-
             //console.log("numSpinTimes: " + numSpinTimes);
             //console.log("field: " + elemId);
-    
            
             addWheelValuesToForm(wheelValues); //change title (of which field is now being filled) / add values to form
 
@@ -246,9 +235,9 @@
 		// +3 is accunting for the mandatory fields that are on every form
 		if(curIteration == (numParams + 3)){
 			$('.spinWheel').hide();
+			$('#submitBudgetBtn').removeClass("hidden");
 		}
 	}
-
 
 //add code to 
 //check if any letters are being pressed or any keyboard input to then autofocus field
@@ -257,11 +246,10 @@ $('#currentField1').click(function(){
 	$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
 });
 
-
 </script>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', budgets_path %>
+<%# link_to 'Back', budgets_path %>
 
 

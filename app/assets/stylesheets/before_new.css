@@ -1,14 +1,15 @@
 	/*#submitBtn{display: none;}*/
 	#list{display: none;} /*hide the section that holds the list and continue btn*/
 	#left-defaults li{
-		background-color: green;
-		border: 1px solid black;
-		border-radius: 5px;
+		background-color: #7b69eb;
+		border: 3px solid white;
+		border-radius: 15px;
 		text-align: center;
 		font-size: 24pt;
-		height:50px;
-		margin: 10px;
-		margin-left: 10px;
+		padding:5px;
+
+		
+		height: auto;
 	}
 	/* Pretty list css*/
     .event-list {
@@ -93,7 +94,7 @@
   margin-top:-25px;
   margin-left:-25px;
   height:70px;
-  background:red;
+  background:#4ECDC4;
   -webkit-animation:bounce 1s infinite;
   color: white;
   font-size: 20pt;
@@ -140,14 +141,35 @@
 /* ./sticky button */
 
 #right-defaults li { 
-	background-color: yellow; 
+	background-color: #F7CA18; 
 	text-align: center;
-	border: 1px solid black;
-	border-radius: 6px;
+	border: 3px solid white;
+	border-radius: 24px;
 	font-size: 2vw; /* adjusts text tize to fit viewport */
-	height: 50px;
+	height: auto;
+	padding: 5px;
 }
 
 
 .listIsEmpty{ display: none; }
 #emptyListMessage{ margin-top: 50px; }
+
+#changeSomethingBtn{
+	height: 50px;
+    background-color: #EC644B;
+    color: white;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    margin: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    position:relative;
+    bottom:0;
+}
+
+#changeSomethingBtn:hover{
+background-color: white;
+border: 1px solid #EC644B;
+color:#EC644B;;
+}

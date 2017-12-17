@@ -1,49 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Money Counts - eLearning">
-<!--     <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-
-    <title>M M C</title>
-
-    <!-- Custom styles for this template -->
-    <%= stylesheet_link_tag "theme" %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-	<% stylesheet_link_tag "" %>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-	<% stylesheet_link_tag "" %>
-    
-    <%= javascript_include_tag "smoothscroll" %>
-  </head>
-
-  <body data-spy="scroll" data-offset="0" data-target="#navigation">
-
-    <!-- Fixed navbar -->
-	    <div id="navigation" class="navbar navbar-default navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="#"><b>My Money Counts</b></a>
-	        </div>
-	        <div class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#home" class="smothscroll">Home</a></li>
-	            <li><a href="#desc" class="smothscroll">Description</a></li>
-	            <li><a href="#showcase" class="smothScroll">Showcase</a></li>
-	            <li><a href="#contact" class="smothScroll">Contact</a></li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	      </div>
-	    </div>
-
-
-	<section id="home" name="home"></section>
+<%= stylesheet_link_tag "theme" %>
+	<section id="home" name="home" style="margin-top: -110px;"></section>
 	<div id="headerwrap">
 	    <div class="container">
 	    	<div class="row centered">
@@ -54,8 +10,8 @@
 	    		</div>
 	    		
 	    		<div class="col-lg-2">
-	    			<h5>Interactive Budget creation</h5>
-	    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	    			<h5 id="heroTitle1"><center>Interactive Budget creation</center></h5>
+	    			<p>Put a budget together in no time using the interactive tools.</p>
 	    			<%= image_tag("arrow1", class: "hidden-xs hidden-sm hidden-md") %>
 	    		</div>
 	    		<div class="col-lg-8">
@@ -71,29 +27,28 @@
 	    </div> <!--/ .container -->
 	</div><!--/ #headerwrap -->
 
-
 	<section id="desc" name="desc"></section>
 	<!-- INTRO WRAP -->
 	<div id="intro">
 		<div class="container">
 			<div class="row centered">
-				<h1>Designed To Excel</h1>
+				<h1>The basics provided by MMC</h1>
 				<br>
 				<br>
 				<div class="col-lg-4">
-					<%= image_tag("intro01") %>
-					<h3>Community</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<%= image_tag("intro015") %>
+					<h3>See where your money goes</h3>
+					<p>Visualize your spending habbits so you know exacly what's going in, and out.</p>
 				</div>
 				<div class="col-lg-4">
 					<%= image_tag("intro02") %>
-					<h3>Schedule</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<h3>Get ahead</h3>
+					<p>Create budgets for the comming weeks. You can even access old budgets too!</p>
 				</div>
 				<div class="col-lg-4">
-					<%= image_tag("intro03") %>
-					<h3>Monitoring</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<%= image_tag("intro032") %>
+					<h3>Access Anywhere</h3>
+					<p>Use and interact with MMC anywhere using any device.</p>
 				</div>
 			</div>
 			<br>
@@ -105,7 +60,7 @@
 	<div id="features">
 		<div class="container">
 			<div class="row">
-				<h1 class="centered">What's New?</h1>
+				<h1 class="centered">What can I do with MMC?</h1>
 				<br>
 				<br>
 				<div class="col-lg-6 centered">
@@ -120,12 +75,12 @@
 		                <div class="accordion-group">
 		                    <div class="accordion-heading">
 		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-		                        First Class Design
+		                        Interactive & Effortless Budget Creation
 		                        </a>
 		                    </div><!-- /accordion-heading -->
 		                    <div id="collapseOne" class="accordion-body collapse in">
 		                        <div class="accordion-inner">
-								<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+								<p>A series of tools are availible at the users disposal which ensure a pleasant experience. These tools make Budget creation as simple as it should be. These tools are designed around UX research techniques - and will soon be tested by MMC users to better improve theme.</p>
 								</div><!-- /accordion-inner -->
 		                    </div><!-- /collapse -->
 		                </div><!-- /accordion-group -->
@@ -134,12 +89,12 @@
 		                <div class="accordion-group">
 		                    <div class="accordion-heading">
 		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-		                        Retina Ready Theme
+		                        Input Wheel
 		                        </a>
 		                    </div>
 		                    <div id="collapseTwo" class="accordion-body collapse">
 		                        <div class="accordion-inner">
-								<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+								<p>Nobody likes filling out long forms, paper or digital. The process is repetitive and unpleasant - clicking into the field, reading the title and inputting the appropriate answer before continuing to move to the next field. Rinse & Repeat untill the form is completed. This is how it is done on every website & app. <br><br> When answers are required from MMC users, whether it be for creating a Budget or signing up, an interactive wheel can be used. This wheel brings the field to the user each time, no messing, no wasted efferts or time. Cut out the confussion.</p>
 								</div><!-- /accordion-inner -->
 		                    </div><!-- /collapse -->
 		                </div><!-- /accordion-group -->
@@ -148,12 +103,12 @@
 		                 <div class="accordion-group">
 		                    <div class="accordion-heading">
 		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-		                        Awesome Support
+		                        Drag & Drop 
 		                        </a>
 		                    </div>
 		                    <div id="collapseThree" class="accordion-body collapse">
 		                        <div class="accordion-inner">
-								<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+								<p>Before a user even fills out a form stating how much they will spend on certain things, first they need to choose what items they will be (rent, going out for dinner, savings etc.) This is another time when the user is prompted for answers. <br> <br> A drag and drop feature is displayed to the user prior to the wheel where they can drag items of their choosing into a box and make a budget depending on these items. Not every budget is the same so having this level of cusomization mixed with its ease of use is a useful solution.</p>
 								</div><!-- /accordion-inner -->
 		                    </div><!-- /collapse -->
 		                </div><!-- /accordion-group -->
@@ -162,12 +117,12 @@
 		                 <div class="accordion-group">
 		                    <div class="accordion-heading">
 		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-		                        Responsive Design
+		                        Visualizations
 		                        </a>
 		                    </div>
 		                    <div id="collapseFour" class="accordion-body collapse">
 		                        <div class="accordion-inner">
-								<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+								<p>When the user creates a budget they can view how their money is being spent using the visual aid(pie chart) provided. This way their spendings can be seen in proportions relative to one another. <br> <br>Its one way to find out you spend nearly as much on junk food as you do rent!</p>
 								</div><!-- /accordion-inner -->
 		                    </div><!-- /collapse -->
 		                </div><!-- /accordion-group -->
@@ -177,7 +132,6 @@
 			</div>
 		</div><!--/ .container -->
 	</div><!--/ #features -->
-	
 	
 	<section id="showcase" name="showcase"></section>
 	<div id="showcase">
@@ -211,9 +165,8 @@
 		</div><!-- /container -->
 	</div>	
 
-
 	<section id="contact" name="contact"></section>
-	<div id="footerwrap">
+	<div id="footerwrap" style="display: none;">
 		<div class="container">
 			<div class="col-lg-5">
 				<h3>Address</h3>
@@ -249,20 +202,12 @@
 	</div>
 	<div id="c">
 		<div class="container">
-			<p>Created by <a href="http://www.blacktie.co">BLACKTIE.CO</a></p>
-		
+			<p>Maybe add some Links Here for<a href="http://www.blacktie.co">Budget creation & profile</a></p>
 		</div>
 	</div>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- bootstrap -->
 	<script>
 	$('.carousel').carousel({
 	  interval: 3500
 	})
 	</script>
-  </body>
-</html>

@@ -2,25 +2,39 @@
 	<html>
 		<head>
 		  <title>MyMoneyCounts1</title>
-		    <!-- application js -->
-  			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		    <!-- application css -->
-		  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		  	<meta name="description" content="My Money Counts - eLearning">
+		  	<meta charset="utf-8">
+		  	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js",  "data-turbolinks-track" => true %>
 		  	<!-- bootstrap css  -->
 		  	<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel: "stylesheet", integrity:"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin: "anonymous" %>
-		  	<!-- Bootstrap js -->
-  			<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity: "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin: "anonymous" %>
 		  	<!-- font awsome -->
 		  	<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet", integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin: "anonymous" %>
+		    <!-- application css -->
+		  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		  	<!-- Additional files -->
-		  	<!-- charts on show  -->
-  			<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+		    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic", rel: "stylesheet", type: "text/css" %>
+			<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Raleway:400,300,700", rel: "stylesheet", type: "text/css" %> 
   			<% csrf_meta_tags %>
+
+  					 <!-- application js -->
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  		<!-- Bootstrap js -->
+  		<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity: "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin: "anonymous" %>
+  		<!-- charts on show  -->
+  		<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js", "data-turbolinks-track" => true %>
 		</head>
 	<body>
-		<%# render 'pages/header' %>
+		<!-- ryan take out br after testing -->
+<br>
+<br>
+<br>
+<br>
+<br>
+		<%= render 'pages/header' %>
 		<div class="">
 		<%= yield %>
 		</div>
+
 	</body>
 </html>
