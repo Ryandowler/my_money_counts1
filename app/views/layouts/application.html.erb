@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<head>
-		  <title>MyMoneyCounts1</title>
+		<title><%= (yield(:title) + " - " unless yield(:title).blank?).to_s + "My Money Counts" %></title>
 		  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		  	<meta name="description" content="My Money Counts - eLearning">
 		  	<meta charset="utf-8">

@@ -1,29 +1,25 @@
 Rails.application.routes.draw do
 
+get 'budgets/before_new'
 
-  get 'budgets/before_new'
-
-
-  
-  #resources :budgets
-  resources :budgets do
+resources :budgets do
   collection do
     put :update_attribute_on_the_spot
     get :get_attribute_on_the_spot
   end
 end
 
-  get 'pages/home'
-  get 'pages/about'
-  get 'pages/front'
-  get 'pages/profile'
+get 'pages/home'
+get 'pages/about'
+get 'pages/front'
+get 'pages/profile'
 
 
 
-  #devise_for :users
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+#devise_for :users
+devise_for :users, :controllers => { registrations: 'registrations' }, :path_names => {:sign_up => "register"}
+# The priority is based upon order of creation: first created -> highest priority.
+# See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'pages#front'
