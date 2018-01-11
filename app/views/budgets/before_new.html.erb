@@ -7,13 +7,16 @@
 <button href="#" class="btn stickyBtn" onclick="showDragAndDrop();" data-toggle="tooltip" title="Hide or Show the Drag & Drop box"><i id="stickyBtnIcon" class=" fa fa-chevron-down fa-5x" ></i></button>
 
 <div class= "examples" style="margin-left:10px;">
+	<button type="button" class="btn helpBtn" data-toggle="modal" data-target="#helpModal">
+		Help <span class="glyphicon glyphicon-question-sign"></span>
+	</button>
 	<div class='parent'>
 		<h1 style="text-align: center;">What categories are you <u>Budgeting</u> for this week:</h1>
 		<ul id='right-defaults' class='col-md-10 col-md-push-1' style="border: 2px dashed #7b69eb; min-height:200px; padding: 10px;"> </ul>
 		<div class='wrapper col-md-12'>
 			<ul id='left-defaults' class='col-md-12' style=" min-height: 200px;">
 			    <li class="col-md-4">Savings <%= image_tag "savings", class: "img img-responsive col-md-3" %> </li>
-			    <li class="col-md-4">Bills <%= image_tag "savings", class: "img img-responsive col-md-3" %></li>
+			    <li class="col-md-4">Bills <%= image_tag "bills", class: "img img-responsive col-md-3" %></li>
 			    <li class="col-md-4">Lunches <%= image_tag "lunches", class: "img img-responsive col-md-3" %></li>
 			    <li class="col-md-4">Phone <%= image_tag "phone", class: "img img-responsive col-md-3" %></li>
 			    <li class="col-md-4">Travel <%= image_tag "travel", class: "img img-responsive col-md-3" %></li>
@@ -47,6 +50,25 @@
 	<div class="container" id="prettyList" style="padding-bottom: 50px;"></div>
 	<div id="changeSomethingBtn" onclick="showDragAndDrop()">Wait! I want to Change Something</div>
 	<%= link_to "continue", new_budget_path(:chosen_fields => chosen_fields), id: "submitBtn", class: "bounce" %>
+</div>
+
+
+<!-- Modal -->
+<div id="helpModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Drag Some Items Into The Box Below - Choose Items That You Want To Make a Budget For!</h4>
+      </div>
+      <div class="modal-body">
+       	<center><%= image_tag("help_before_new") %> </center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= javascript_include_tag   'before_new'  %>

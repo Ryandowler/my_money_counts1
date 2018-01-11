@@ -7,9 +7,8 @@
 		text-align: center;
 		font-size: 24pt;
 		padding:5px;
-
-		
 		height: auto;
+		color: white;
 	}
 	/* Pretty list css*/
     .event-list {
@@ -172,4 +171,19 @@
 background-color: white;
 border: 1px solid #EC644B;
 color:#EC644B;;
+}
+
+.helpBtn{
+	position: fixed;
+	right: 0;
+	float: right;
+	margin-right: 20px;
+	margin-top: -40px;
+	font-size: 1.6em;
+}
+/*overwrite bootsrap for help modal */
+.modal-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
 }
