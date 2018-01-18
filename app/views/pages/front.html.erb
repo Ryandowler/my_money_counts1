@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "theme" %>
-	<section id="home" name="home" style="margin-top: -110px;"></section>
+	<section id="home" name="home" style="margin-top: -190px;"></section>
 	<div id="headerwrap">
 	    <div class="container">
 	    	<div class="row centered">
@@ -8,7 +8,6 @@
 					<h3>Helping you to better manage your money</h3>
 					<br>
 	    		</div>
-	    		
 	    		<div class="col-lg-2">
 	    			<h5 id="heroTitle1"><center>Manage your money</center></h5>
 	    			<p>Put a budget together in no time using the Drag & Drop budget maker.</p>
@@ -24,15 +23,12 @@
 	    			<h5>Clearly see where your money goes</h5>
 	    			<%= image_tag("arrow2", class: "hidden-xs hidden-sm hidden-md") %>
 	    			<!-- <p>Clearly see where your money is going via your dashboard visuals</p> -->
-	    			<div style="margin-top: 150px;">
+	    			<div style="margin-top: 175px;">
 		    			<%= image_tag("plusMore", class: "hidden-xs hidden-sm hidden-md ") %>
-		    			<h5 style="float: right;"> And More!</h5>
+		    			<h5 class="andMoreText"> And More!</h5>
 	    			</div>
 	    		</div>
-	  
-			
 	    	</div>
-
 	    </div> <!--/ .container -->
 	</div><!--/ #headerwrap -->
 
@@ -73,7 +69,9 @@
 				<br>
 				<br>
 				<div class="col-lg-6 centered">
-					<%= image_tag("mobile", class: "centered") %>
+					<%= image_tag("mobile", class: "centered", id: "showFeaturesPhone1") %>
+					<%= image_tag("mobile2", class: "hidden centered", id: "showFeaturesPhone2") %>
+					<%= image_tag("mobile4", class: "hidden centered", id: "showFeaturesPhone4") %>
 				</div>
 				
 				<div class="col-lg-6">
@@ -83,7 +81,7 @@
 		            <div class="accordion ac" id="accordion2">
 		                <div class="accordion-group">
 		                    <div class="accordion-heading">
-		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		                        <a class="showFeatures_1 accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 		                        Interactive & Effortless Budget Creation
 		                        </a>
 		                    </div><!-- /accordion-heading -->
@@ -97,7 +95,7 @@
 		
 		                <div class="accordion-group">
 		                    <div class="accordion-heading">
-		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		                        <a class="showFeatures_2 accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
 		                        Input Wheel
 		                        </a>
 		                    </div>
@@ -111,7 +109,7 @@
 		
 		                 <div class="accordion-group">
 		                    <div class="accordion-heading">
-		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+		                        <a class="showFeatures_3 accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
 		                        Drag & Drop 
 		                        </a>
 		                    </div>
@@ -125,7 +123,7 @@
 		                
 		                 <div class="accordion-group">
 		                    <div class="accordion-heading">
-		                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+		                        <a class="showFeatures_4 accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
 		                        Visualizations
 		                        </a>
 		                    </div>
@@ -154,15 +152,19 @@
 					  <ol class="carousel-indicators">
 					    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 					    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
 					  </ol>
 					
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
 					    <div class="item active">
-					      <%= image_tag("item-01") %>
+					      <%= image_tag("item-011") %>
 					    </div>
 					    <div class="item">
-					      <%= image_tag("item-02") %>
+					      <%= image_tag("item-022") %>
+					    </div>
+					    <div class="item">
+					      <%= image_tag("item-3") %>
 					    </div>
 					  </div>
 					</div>
@@ -217,6 +219,18 @@
 
 	<script>
 	$('.carousel').carousel({
-	  interval: 3500
+	  interval: 4000
 	})
+
+	$( ".showFeatures_2" ).click(function() {
+        //change image with class showFeaturesPhone to mobile2
+        $("#showFeaturesPhone1").addClass("hidden");
+        $("#showFeaturesPhone2").removeClass("hidden");
+    });
+
+    $( ".showFeatures_4" ).click(function() {
+        //change image with class showFeaturesPhone to mobile2
+        $("#showFeaturesPhone2").addClass("hidden");
+        $("#showFeaturesPhone4").removeClass("hidden");
+    });
 	</script>

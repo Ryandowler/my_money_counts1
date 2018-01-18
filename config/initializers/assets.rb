@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( theme.css smoothscroll.js dragula.css dragula.js example.css example.min.js before_new.js before_new.css profile.css)
+Rails.application.config.assets.precompile += %w( theme.css smoothscroll.js dragula.css dragula.js example.css example.min.js before_new.js before_new.css profile.css profile.js)

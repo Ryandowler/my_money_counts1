@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 
-<!-- excludes nil columns (will exclude created_and other defaults too ) --> 
-<%= pie_chart @budget.dup.attributes.keep_if{|k,v| !v.nil?} %>
+<!-- excludes nil columns (will exclude created_and other defaults too ) And excludes money_in, week  --> 
+<center>
+  <%= pie_chart @budget.dup.attributes.keep_if{|k,v| !v.nil? && !(k ==  "money_in" || k ==  "week" ) }, 
+        width: "800px",
+        height: "400px",
+        legend: "bottom" %>
+</center>
 
-
-<% line_chart Budget.where(id: 16).group(:savings,  :bills).count %>
-
-<% bleh %>
 <style>
   blockquote{
     border-left:none
 }
-
 .quote-badge{
     background-color: rgba(0, 0, 0, 0.2);   
 }
-
 .quote-box{
-    
-    overflow: hidden;
-    border-radius: 17px;
-    background-color: #4ADFCC;
-    margin-top: 25px;
-    margin-left: 60px;
-    color:white;
-    box-shadow: 2px 2px 2px 2px #E0E0E0;
-    padding-bottom: 25px;
-    max-height: 100%;
-    
+  overflow: hidden;
+  border-radius: 17px;
+  background-color: #4ADFCC;
+  margin-top: 25px;
+  margin-left: 60px;
+  color:white;
+  box-shadow: 2px 2px 2px 2px #E0E0E0;
+  padding-bottom: 25px;
+  max-height: 100%;
 }
 
 .quotation-mark{
@@ -38,7 +35,6 @@
     font-size:40px;
     color:white;
     font-family: "Times New Roman", Georgia, Serif;
-    
 }
 
 .quote-text{
@@ -48,13 +44,10 @@
     text-align: center;
 }
 
-
 .on_the_spot_editing form{
-
   font-size: 0.3em;
   color: black;
   background-color: red;
-
 }
 .on_the_spot_editing button{
   visibility: hidden;
@@ -64,10 +57,7 @@
 /* items with no value */
 .itsBlank{background-color: #ff6060; opacity: 0.5;}
 .itsBlank:hover{background-color: #46c4b4; opacity: 0.7;}
-
-
 </style>
-
 
 
 <% @num_columns.times do |budget| %>

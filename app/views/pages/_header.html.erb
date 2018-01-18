@@ -13,7 +13,7 @@
               <li class="active"><a href="/" class="smothscroll">About the app</a></li>
               <% if user_signed_in? %>
                     <li><a href="/pages/profile">My Profile</a></li>
-                    <li><a href="/pages/profile">My Budgets</a></li>
+                    <!-- <li><a href="/pages/profile">My Budgets</a></li> -->
                     <li><a href="/budgets/before_new">Create a Budget now</a></li>
                     <li><%= link_to('Logout', destroy_user_session_path) %></li>    
                   <% else %>

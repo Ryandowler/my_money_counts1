@@ -19,16 +19,15 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                        <%=image_tag "profile_mmc", class: "img-rounded img-responsive" %>
                     </div>
                     <div class=" col-sm-6 col-md-8">
                         <h4 class="profile_name col-md-8"><%= @user.first_name %> <%= @user.last_name %></h4> 
-                      
                         	<%= link_to edit_user_registration_path do %>
                         	  <%= button_tag "Change This", class: "profile_updateBtn btn btn-primary btn-responsive col-md-4" %>
                         	<% end %>
                         	<div class="profileDetails col-md-12">
-                        		 <i class="glyphicon glyphicon-globe"></i> Your Email: <text> email@example.com </text>
+                        		 <i class="glyphicon glyphicon-globe"></i> Your Email: <text> <%= @user.email %> </text>
 	                            <br />
 	                            <i class="glyphicon glyphicon-time"></i> You joined 
 	                            <text><%= time_ago_in_words(@user.created_at) %></text> ago
@@ -40,14 +39,28 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-    <div class="container">
-	<div class="row">
-        <div class="col-md-12">
-		    <button class="btn btn-default orange-circle-button" href="">My<br />Budgets<br /></button>
-        </div>   
+  
+	<div class="row" style="margin-left: 50px;">
+        <div class="col-md-4">
+            <button class="myBudgetsBtn btn btn-default orange-circle-button" href="">My<br />Budgets<br /></button>
+            <div id="myBudgetsContainer">
+                <div class="row" id="myBudgetsInfoBox" >
+                    <h1 class="purpleFont col-md-8">Your Budgets</h1>
+                    <button class="col-md-3 myBudgetsHideBtn">Hide This</button>
+                </div> 
+                <div class="myBudgets">
+                    <% @budgets.each_with_index do |budget, index| %>
+                    <h2> <%= link_to "(#{(index + 1)}) " + budget.title, budget_path(budget) %> </h2> <br>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-push-4">
+            <button class="btn btn-default orange-circle-button" href="">My<br />Games / Modules<br /></button> 
+        </div>
 	</div>
-</div>
-    </div>
+
 
 </div>
+
+<%= javascript_include_tag "profile" %>

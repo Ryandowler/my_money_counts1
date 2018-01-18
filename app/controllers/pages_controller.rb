@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       #get the orgs belloning to the user
       @user = current_user
       @users_budgets = Budget.where(["user_id = ?", @user.id])
+      @budgets = Budget.all
    end
 
   end
