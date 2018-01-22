@@ -1,0 +1,114 @@
+/*form, .hidden{visibility: hidden;}*/
+
+/* wheel */
+.spinWheel {
+    height: 490px;
+    margin: auto;
+    width: 600px;
+    position: relative;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
+}
+.spinWheel div {
+    color: #fff;
+    font-size: 5em;
+    height: 150px;
+    line-height: 150px;
+    position: absolute;
+    text-align: center;
+    width: 300px;
+}
+.first { background: red; }
+.second { background: green; }
+.third { background: blue; }
+/*why is there a need for this -change*/
+.first {
+    left: 50%;
+    margin-left: -150px;
+    top: 0;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+}
+.second {
+    bottom: 85px;
+    right: 0;
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.third {
+    bottom: 85px;
+    left: 0;
+    -webkit-transform: rotate(240deg);
+    -moz-transform: rotate(240deg);
+    -o-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+/* ./wheel */
+
+/* wheel additional (after structure) */
+.spinWheel input{
+	width: 90%;
+    height: 90%;
+    color:red;
+}
+/* rest of page elements */
+#title{ font-size: 5em; text-align: center; }
+
+/* cursor */
+.cursor { position: relative; }
+.cursor	i {
+	position: absolute;
+	width: 3px;
+	height: 80%;
+	background-color: red;
+	left: 10%;
+	top: 10%;
+	animation-name: blink;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+.cursor input:focus + i {
+	display: none;
+}
+@keyframes blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+/* ./ cursor */
+
+/*progress bar*/
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+#myBar, #barEnd {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+#wheelContainer{ position: fixed;background: rgba(123, 105, 235, 0.40); width: 100%; }
+
+.blurWheelItem {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+}
