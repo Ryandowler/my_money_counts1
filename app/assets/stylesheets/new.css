@@ -90,15 +90,26 @@
 /*progress bar*/
 #myProgress {
   width: 100%;
-  background-color: #ddd;
+  height: 100px;
+  /*background-color: #ddd;*/
+  visibility: visible; 
+  margin-left: 0px; 
+  margin-top: -60px;
 }
-#myBar, #barEnd {
+#myBar, #barEnd, #myBar2 {
   width: 10%;
   height: 30px;
   background-color: #4CAF50;
   text-align: center;
   line-height: 30px;
   color: white;
+  height: 90%;
+}
+#myBar2{
+    background-color: #26C281; 
+    width: 0%; 
+    border-bottom-right-radius: 55px;
+    border-top-right-radius: 55px;
 }
 #wheelContainer{ position: fixed;background: rgba(123, 105, 235, 0.40); width: 100%; }
 
@@ -111,4 +122,14 @@
   width: 100px;
   height: 100px;
   background-color: #ccc;
+}
+
+#submitBudgetBtn{
+  margin-top: 50px;
+}
+
+.circle:before {
+  content: ' \25CF';
+  font-size: 190px;
+  padding-right: 100px;
 }

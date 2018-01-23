@@ -2,9 +2,13 @@
 <%= stylesheet_link_tag "new" %>
 <%= javascript_include_tag "http://www.gerardolarios.com/plugins-and-tools/jqmeter/js/jqmeter.min.js" %>
 <h1 id="progressbarMoney_in"></h1>
-<div id="myProgress" class="row" style="visibility: hidden;">
-  <div id="myBar" class="col-md-6" style="background-color: green"></div>
-  <div id="barEnd" style="background-color: red; float: right; "></div>
+<div id="myProgress" class="row">
+	<div id="myBar" class="col-md-1" style="background-color: #019875;"> </div>
+	<div id="myBar2" class="col-md-1"> </div>
+  <div id="barEnd" class="col-md-1" style="background-color: #EF4836; float: right; padding: 20px;">
+  	<span id="barEndText"></span>
+  	<span class="circle" style=" position: fixed; right: 0; "></span>
+  </div>
 </div>
 <div id="wheelContainer">
 <h1 id="title">Name of Budget</h1>

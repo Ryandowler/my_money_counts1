@@ -12,15 +12,12 @@
 	$(document).ready(function() {    //DO I NEED TO THIS 1/2
 		var array = [];
 		var elements = $(); //stores the fields
-
 		recievedParams =  $('.recievedParams').text(); //budget items(fields) chosen 
 		numParams =  parseInt($('.numParams').text()); //the number of budget items chosen
 		$j_object = $(".field"); //list of all page fields
+		$j_object.each( function(i) {	 if(i > 2){ $(this).remove(); }}); //remove all but first 3 fields (title, money in, week) 
 
-		//remove all but first 3 fields (title, money in, week) 
-		$j_object.each( function(i) {	 if(i > 2){ $(this).remove(); }    }); 
-
-		//----rename allFields later its confussing
+		//----rename allFields later its confussing & hh1(Change)
 
 		//loop through all fileds to find the ones chosen by user
 		for (var i = 0; i<$j_object.length; i++ ){
@@ -31,25 +28,17 @@
 			}
 		}
 
-		//-- make the form invisible, user interacts with wheel, wheel values put in this form and submitted--
-		//$( ".fields" ).css("display", "none");
-
 		//sets the focus on the first field ONE time if any keyboard input at all / remove styled cursor
 		$( "body" ).one( "keypress", function() {
 			$('#currentField1').focus(); 
 			$('	.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
 		});
-
 	}); //DO I NEED TO THIS 2/2
 
 	//spin the wheel
 	function spinWheel(){ degrees+=120; $('.spinWheel').css('transform', 'rotate(' + degrees + 'deg)'); }
 
-	function changeWheelFieldId(){
-
-	}
-
-	//+++++ check if enter is pressed in .spinWheel input then call spinWheel();
+	//check if enter is pressed in .spinWheel input then call spinWheel();
 	$('.spinWheel').on("keypress", function(e) {
 		
         if (e.keyCode == 13) {
@@ -75,25 +64,23 @@
             return false; // prevent the button click from happening
         }
 	});
-
+var tempCount = 0; //temp store how  many times user input less than 15 on items
 	// add the wheel values to the hidden form
 	function addWheelValuesToForm(wheelValues){
-
 		var input = $('.fields').find('input')[curIteration]; //get the input field for this call (like iteration, goes through 1by1)
 		var theValue = wheelValues[curIteration];
 		input.value = theValue; //put val from wheel to its corresponding field eg (title into title field)
 		curIteration += 1;	//increase variable to keep track of number of calls this method gets  (to iterate through object)
-
-		//--- display labels(field names) for wheel spins ---
-		var label = $('.fields').find('div:nth-child('+(curIteration + 1)+')').text().trim(); //get the label (starts at index 2 					becasue first label is present in html and because this function runs after field has been used) ./ 	
+		var elem = $('#myBar2')[0];
+		var label = $('.fields').find('div:nth-child('+(curIteration + 1)+')').text().trim(); //get the label (starts at index 2, holds labels(field names) for wheel spins					becasue first label is present in html and because this function runs after field has been used) ./ 	
 
 		//if there is no more fields remove wheel
 		if(!label){
 			$('.spinWheel').hide();
+			$('#myProgress').hide();
 			$('#submitBudgetBtn').removeClass("hidden");
+			$('body').css('background-color', 'rgba(123, 105, 235, 0.40)');
 		}
-
-		var elem = $('#myBar')[0];
 
 		$('#title').text(label); //change the title above wheel 
 
@@ -104,21 +91,23 @@
 		}//start retrieving values after 'week' 
 		else if(curIteration == 3){
 			$('#myBar').text("You have €" + purse);
-			$('#barEnd').text("Out of: €" + purse);
+			$('#barEndText').text("Out of: €" + purse);
 			$('#myProgress').css("visibility", "visible");
 		}
 		else if(curIteration > 3){
 			purse = purse - theValue;
 			$('#myBar').text("You have €" + purse + " remaining");
-			$('#barEnd').text("Out of: €" + total);
+			$('#barEndText').text("Out of: €" + total);
 			var percentageOfPurseSpent = Math.floor(( (total - purse) / total) * 100);
-			elem.style.width = percentageOfPurseSpent + '%'; 
+
+			elem.style.width = percentageOfPurseSpent + '%';
+			
 			//get the total amount of money inputeed(spent) and 
 			//updateProgressbar(0, theValue); add this func
 		}
 	}
 
-//add code to 
+//add code to  (change)
 //check if any letters are being pressed or any keyboard input to then autofocus field
 
 $('#currentField1').click(function(){
@@ -128,19 +117,18 @@ $('#currentField1').click(function(){
 //blurs the 2 wheel items (fields) that are not about to be used when animation spins it
 function focusWheelItem(itemToFocus){
    	switch (itemToFocus) {
-   		//if 1 -> hide 2 & 3 and show 1
+   		//spin from item 1 to item 3 (clockwise)
 	    case 1:
 	    	$('.first').addClass( "blurWheelItem" );
 	    	$('.second').addClass( "blurWheelItem" );
 	    	$('.third').removeClass( "blurWheelItem" );
 	        break;
-	    //if 2 -> hide 1 & 3 and show 2
+	    //spin from item 3 to item 2 (clockwise)
 	    case 2:
-	        $('.first').addClass( "blurWheelItem" );
 	    	$('.third').addClass( "blurWheelItem" );
 	    	$('.second').removeClass( "blurWheelItem" );
 	        break;
-	    //if 3 -> hide 1 & 2 and show 3
+	    //spin from item 2 to item 1 (clockwise)
 	    case 3:
 	    	$('.second').addClass( "blurWheelItem" );
 	        $('.first').removeClass( "blurWheelItem" );
