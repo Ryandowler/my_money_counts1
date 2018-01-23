@@ -1,4 +1,4 @@
-var degrees = 0;
+	var degrees = 0;
 	var $j_object;
 	var wheelValues = []; //vaues user inputted to the wheels fields
 	var numSpinTimes = 1; //how many times the wheel spun; how manny inputed values
@@ -14,7 +14,7 @@ var degrees = 0;
 		var elements = $(); //stores the fields
 
 		recievedParams =  $('.recievedParams').text(); //budget items(fields) chosen 
-		numParams =  parseInt($('.numParams').text()); //the number of budget items chosen 
+		numParams =  parseInt($('.numParams').text()); //the number of budget items chosen
 		$j_object = $(".field"); //list of all page fields
 
 		//remove all but first 3 fields (title, money in, week) 
@@ -62,40 +62,8 @@ var degrees = 0;
             if (value == null || value == "" || value == " ") {	value = 0;	} //default value = 0
             //alert(value);
             wheelValues.push(value);
-            spinWheel();
-
-            //console.log("numSpinTimes: " + numSpinTimes);
-            //console.log("field: " + elemId);
-
-            //Need to make this alot more dynamic,
-            // make it that it iterates 3, then 2 then 1
-            // but if 3 is selected hide 2 & 1 and show 3
-            //  if 2 is selected hide 1 & 2 and show 2 
-            //   if 1 is selected hide 2 & 3 and show 1
-            // so then can remove the switch and make it work for an infinite amount of spins  
-            switch (numSpinTimes) {
-			    case 1:
-			    	// alert(" show 3");
-			    	//make function for adding class and just pass first, second or third or 2 of them
-			    	//same for removing the class [  removeClassFromWheelItem(second)  ]
-			    	$('.first').addClass( "blurWheelItem" );
-			    	$('.second').addClass( "blurWheelItem" );
-
-			        break;
-			    case 2:
-			       //alert(" show 2");
-			        $('.first').addClass( "blurWheelItem" );
-			    	$('.third').addClass( "blurWheelItem" );
-			    	$('.second').removeClass( "blurWheelItem" );
-			        break;
-			    case 3:
-			        alert(" show 1 ");
-			 
-			    	$('.second').addClass( "blurWheelItem" );
-			        $('.first').removeClass( "blurWheelItem" );
-			        break;
-			}
-           
+            spinWheel(); //spin wheel animation to next item (field)
+            focusWheelItem(numSpinTimes); //blur the 2 wheel items not being used
             addWheelValuesToForm(wheelValues); //change title (of which field is now being filled) / add values to form
 
             //reset ids so only 3 fields are needed
@@ -104,10 +72,6 @@ var degrees = 0;
             
             $(elemId).val("");	// reset the field value to blank
             $(nextElemId).focus();	// focus the cursor on the next field spinning around
-
-        	//console.log("Next field: " + nextElemId);
-            //console.log(wheelValues);
-
             return false; // prevent the button click from happening
         }
 	});
@@ -130,7 +94,6 @@ var degrees = 0;
 		}
 
 		var elem = $('#myBar')[0];
-
 
 		$('#title').text(label); //change the title above wheel 
 
@@ -161,4 +124,27 @@ var degrees = 0;
 $('#currentField1').click(function(){
 	$('.first').find('*').not('#currentField1').remove(); //remove flashing styled cursor
 });
-	
+
+//blurs the 2 wheel items (fields) that are not about to be used when animation spins it
+function focusWheelItem(itemToFocus){
+   	switch (itemToFocus) {
+   		//if 1 -> hide 2 & 3 and show 1
+	    case 1:
+	    	$('.first').addClass( "blurWheelItem" );
+	    	$('.second').addClass( "blurWheelItem" );
+	    	$('.third').removeClass( "blurWheelItem" );
+	        break;
+	    //if 2 -> hide 1 & 3 and show 2
+	    case 2:
+	        $('.first').addClass( "blurWheelItem" );
+	    	$('.third').addClass( "blurWheelItem" );
+	    	$('.second').removeClass( "blurWheelItem" );
+	        break;
+	    //if 3 -> hide 1 & 2 and show 3
+	    case 3:
+	    	$('.second').addClass( "blurWheelItem" );
+	        $('.first').removeClass( "blurWheelItem" );
+	        break;
+	}
+}
+
