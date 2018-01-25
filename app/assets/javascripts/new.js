@@ -84,26 +84,29 @@ var tempCount = 0; //temp store how  many times user input less than 15 on items
 
 		$('#title').text(label); //change the title above wheel 
 
+		//change to switch statement
 		if(curIteration == 2){
 			purse = theValue;
 			total = theValue;
-			//updateProgressbar(0, theValue); add this func
 		}//start retrieving values after 'week' 
 		else if(curIteration == 3){
 			$('#myBar').text("You have €" + purse);
-			$('#barEndText').text("Out of: €" + purse);
+			$('#circledivText').text("Out of €" + purse);
 			$('#myProgress').css("visibility", "visible");
 		}
 		else if(curIteration > 3){
 			purse = purse - theValue;
 			$('#myBar').text("You have €" + purse + " remaining");
-			$('#barEndText').text("Out of: €" + total);
+			$('#circledivText').text("Out of €" + total);
 			var percentageOfPurseSpent = Math.floor(( (total - purse) / total) * 100);
 
-			elem.style.width = percentageOfPurseSpent + '%';
-			
-			//get the total amount of money inputeed(spent) and 
-			//updateProgressbar(0, theValue); add this func
+			//when the bar is big enough tp hold the text clearly then remove #myBar
+			if (percentageOfPurseSpent > 40){
+				$("#myBar").animate({ left: '-500px' }, 'slow');
+				$('#myBar').remove();
+				$('#myBar2').text("You have €" + purse + " remaining");
+			}
+			elem.style.width = (percentageOfPurseSpent - 7) + '%';
 		}
 	}
 

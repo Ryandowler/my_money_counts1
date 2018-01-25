@@ -20,6 +20,7 @@
     position: absolute;
     text-align: center;
     width: 300px;
+    border-radius: 12px;
 }
 .first { background: red; }
 .second { background: green; }
@@ -92,7 +93,7 @@
   width: 100%;
   height: 100px;
   /*background-color: #ddd;*/
-  visibility: visible; 
+/*  visibility: hidden; */
   margin-left: 0px; 
   margin-top: -60px;
 }
@@ -103,6 +104,7 @@
   text-align: center;
   line-height: 30px;
   color: white;
+  font-weight: 600;
   height: 90%;
 }
 #myBar2{
@@ -133,3 +135,39 @@
   font-size: 190px;
   padding-right: 100px;
 }
+
+.halfCircleRight{
+     height:70px;
+     width:35px;
+     border-radius: 0 70px 70px 0;
+     background:white;
+     margin-left: -20px;
+    margin-top: -9px;
+}
+
+
+.circlediv{
+    width:9%;
+    height:15%;
+    position:fixed;
+    overflow:hidden;
+    right: 0;
+
+}
+.circlediv:before{
+    content:'';
+    position:absolute;
+    right:80%;
+    width:100%;
+    height:100%;
+    border-radius:100%;
+    box-shadow: 0px 200px 0px 320px #448CCB;
+}
+#circledivText{
+    color: white; 
+    font-weight:600;
+    text-align: center;
+}
+
+
+
