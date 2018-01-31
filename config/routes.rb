@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :videos
 get 'budgets/before_new'
 
 resources :budgets do
@@ -13,6 +14,8 @@ get 'pages/home'
 get 'pages/about'
 get 'pages/front'
 get 'pages/profile'
+get 'pages/store'
+# get 'pages/videos'
 
 
 

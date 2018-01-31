@@ -7,6 +7,9 @@
 	var numParams = 0;
 	var purse = 0; //money_in goes in and spends on each iteration comes out
 	var total = 0; //money_in
+	var first  = $('.first'); //item (field) on wheel
+	var second = $('.second');//item (field) on wheel
+	var third  = $('.third'); //item (field) on wheel
 
 	// ** get params and output needed fields **
 	$(document).ready(function() {    //DO I NEED TO THIS 1/2
@@ -118,23 +121,24 @@ $('#currentField1').click(function(){
 });
 
 //blurs the 2 wheel items (fields) that are not about to be used when animation spins it
+
 function focusWheelItem(itemToFocus){
    	switch (itemToFocus) {
    		//spin from item 1 to item 3 (clockwise)
 	    case 1:
-	    	$('.first').addClass( "blurWheelItem" );
-	    	$('.second').addClass( "blurWheelItem" );
-	    	$('.third').removeClass( "blurWheelItem" );
+	    	first.addClass( "blurWheelItem" );
+	    	second.addClass( "blurWheelItem" );
+	    	third.removeClass( "blurWheelItem" );
 	        break;
 	    //spin from item 3 to item 2 (clockwise)
 	    case 2:
-	    	$('.third').addClass( "blurWheelItem" );
-	    	$('.second').removeClass( "blurWheelItem" );
+	    	third.addClass( "blurWheelItem" );
+	    	second.removeClass( "blurWheelItem" );
 	        break;
 	    //spin from item 2 to item 1 (clockwise)
 	    case 3:
-	    	$('.second').addClass( "blurWheelItem" );
-	        $('.first').removeClass( "blurWheelItem" );
+	    	second.addClass( "blurWheelItem" );
+	        first.removeClass( "blurWheelItem" );
 	        break;
 	}
 }
