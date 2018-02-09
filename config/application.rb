@@ -25,5 +25,7 @@ module MyMoneyCounts1
     config.action_controller.include_all_helpers = false
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+
   end
 end

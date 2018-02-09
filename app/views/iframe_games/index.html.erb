@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Iframe Games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @iframe_games.each do |iframe_game| %>
+      <tr>
+        <td><%= iframe_game.link %></td>
+        <td><%= link_to 'Show', iframe_game %></td>
+        <td><%= link_to 'Edit', edit_iframe_game_path(iframe_game) %></td>
+        <td><%= link_to 'Destroy', iframe_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iframe game', new_iframe_game_path %>

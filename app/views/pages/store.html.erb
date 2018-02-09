@@ -1,18 +1,35 @@
-
-
-<div class="entry-content">
-<!-- 	<img style="float:left; clear:none; padding-right: 4px;" src="http://www.moneycounts.ie/images/icons/activities.png">
-	<img style="float: left; clear: none; padding-right: 4px;" src="http://www.moneycounts.ie/images/icons/audio.png" alt=""> -->
-	<object width="610" height="458"><param value="http://www.moneycounts.ie/activity/flash/CountingMoney.swf" name="movie"><param value="true" name="allowfullscreen"><embed width="610" height="458" allowfullscreen="true" src="http://www.moneycounts.ie/activity/flash/CountingMoney.swf"></object>
-</div>
-
-<!-- http://www.teachingmoney.co.uk/eurosite/euroindex.html 
-
+<!-- some sites for more learning games 
+	 http://www.teachingmoney.co.uk/eurosite/euroindex.html 
 	 http://www.edtech.ie/details.asp?id=16032&ptid=20124 - too expensive
-
 	 https://www.gynzy.com/teachers/publishers/mathematics/  free
-
 -->
+<style>
+	.gameDiv{
+		background-color: rgba(123, 105, 235, .3);
+		text-align: center;
+		border-radius: 9px;
+		border: 4px solid white;
+	}
+	.fa-gamepad{
+		font-size: 4em;
+		color: #7b69eb;
+	}
+	.ssb-title{ color: black; }
+</style>
+ <% @iframe_games.each do |iframe_game| %>
+     <%= link_to iframe_game do %>
+ 		<div class="col-md-6 gameDiv">       
+			<div class="ssb-icon"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
+			<h2 class="ssb-title"><%= iframe_game.title %></h2>       
+    	</div>
+    <% end %>
+<% end %>
+
+   
+
+
+   
+
 
 
 

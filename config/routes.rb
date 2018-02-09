@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :iframe_games
   resources :videos
 get 'budgets/before_new'
 

@@ -37,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "chartkick"
 gem "devise"
 gem "on_the_spot"
+#gem 'rack-cors', :require => 'rack/cors'
 
 
 

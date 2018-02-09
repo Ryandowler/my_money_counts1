@@ -4,10 +4,10 @@
   <div class="row mar-top-30">
     <% @videos.each do |video| %>
     <!-- video item -->
-      <div class="col-sm-4">
+      <div class="col-sm-6">
           <div id="testBox" class="box text-center">
             <div class="video hidden">
-              <iframe src="<%= video.link %>?version=3&enablejsapi=1" class="testVidClass" frameborder="0" allowfullscreen></iframe>
+              <iframe src="<%= video.link %>?version=3&enablejsapi=1" class="testVidClass" heightframeborder="0" allowfullscreen></iframe>
             </div>
             <div class="videoDescCard">
                 <div class="incon-box">

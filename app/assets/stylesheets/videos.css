@@ -41,5 +41,6 @@
 }
 .box iframe{
     width: 100%;
-    height: 180px;
+    height: 100%;
 }
+.video{height: 380px;}

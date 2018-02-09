@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def store
-
+    @iframe_games = IframeGame.all
   end
 
 end
