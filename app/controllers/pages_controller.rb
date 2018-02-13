@@ -23,4 +23,7 @@ class PagesController < ApplicationController
     @iframe_games = IframeGame.all
   end
 
+  def calculator
+  end
+
 end

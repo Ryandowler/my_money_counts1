@@ -16,6 +16,7 @@ get 'pages/about'
 get 'pages/front'
 get 'pages/profile'
 get 'pages/store'
+get 'pages/calculator'
 # get 'pages/videos'
 
 

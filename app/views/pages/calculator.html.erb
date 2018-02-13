@@ -1,0 +1,233 @@
+<style type="text/css">
+/*structure around the calc*/
+	.typeOfCalcBtn{
+		 height: 100px;
+		 color: white;
+		 text-align: center;
+		 border: 3px solid white;
+		 border-radius: 15px 15px 0px 0px;
+	}
+	.typeOfCalcBtnArrow{
+		font-size: 4em;
+		text-align: center;
+		margin-top: -10px;
+	}
+	.calculatorMain{
+		border: 3px solid white;
+		border-radius: 10px;
+		min-height: 300px;
+		padding-bottom: 20px;
+	}
+/* ./structure around the calc*/
+
+/*calculator*/
+	.calculator {
+	    /*width: 170px;*/
+	    background-color: #484848;
+	    padding: 20px;
+	    margin-top: 50px;
+	    border-radius: 10px;
+	}
+
+	.result {
+	    width: 100%;
+	    height: 35px;
+	    background-color: #cddecc;
+	    border-radius: 5px;
+	    margin-bottom: 15px;
+	    text-align: right;
+	    line-height: 34px;
+	    font-family: digital;
+	    padding: 0px 5px 0px 5px;
+	    font-size: 25px;
+	    overflow: hidden;
+	    box-shadow: inset 0 0px 3px;
+	    text-align: center;
+    	font-weight: 800;
+    	color: #7b69eb;
+	}
+
+	.key {
+	    /*width: 35px;*/
+	    width: 20%;
+	    background-color: #eeeeee;
+	    display: inline-block;
+	    margin: 3px 0px 8px 3px;
+	    vertical-align: bottom;
+	    text-align: center;
+	    padding: 15px 0px 5px 0px;
+	    font-weight: bold;
+	    border-radius: 4px;
+	    cursor: pointer;
+	    box-shadow: 0 3px 0 #a1a1a1, 0 2px 5px rgba(0, 0, 0, .75);
+	}
+
+	.equal-key {
+	    width: 61%;
+	    background-color: #4a9840;
+	    color: white;
+	}
+
+	.clear-key {
+	    background-color: #bb1c09;
+	    color: white;
+	}
+
+	.right-key{
+		width: 25%;
+	    margin-left: 13%;
+	}
+
+	.key:active {
+	    background-color: #a1a1a1;
+	    box-shadow: 0 5px #666;
+	    transform: translateY(4px);
+	}
+	/*moneyCalc*/
+	.key-money{
+		/*overwrite few things for money-key (from .key)*/
+		padding: 0px 0px 0px 0px;
+		box-shadow: 0 3px 0 #eeeeee, 0 2px 5px rgba(0, 0, 0, .75);
+	}
+	#calculator_money span img{height: 100%;}
+	#calculator_money span.key{
+		height: 50px;
+		max-height: 50px;
+	}
+
+/* ./ calculator*/
+</style>
+<!-- change this minus business! -->
+<div style="margin-top: -50px;">
+	<div class="col-md-6 typeOfCalcBtn numberCalcBtn" style="background-color: #78CBC3;">
+		<h1>Number calculator</h1>
+	</div>
+	<div class="col-md-6 typeOfCalcBtn moneyCalcBtn" style="background-color: #7b69eb;">
+		<h1>Money calculator</h1>
+	</div>	
+	<!-- arrows that indicate which calculator is active -->
+	<div id="arrow1" class="col-md-6 typeOfCalcBtnArrow" style="color: #78CBC3; visibility: hidden;">
+		<i class="fa fa-caret-down"></i>
+	</div>
+	<div id="arrow2" class="col-md-6 typeOfCalcBtnArrow" style="color: #7b69eb;">
+		<i class="fa fa-caret-down"></i>
+	</div>	
+
+	<div class="col-md-12 calculatorMain" style="background-color: #7b69eb;">
+		<!-- number calculator -->
+		 <div id="calculator_number" class="col-md-6 col-md-push-3 calculator hidden">
+	        <div id="" class="result"></div>
+	        <span class="key col-md-3" value='7'>7</span>
+	        <span class="key col-md-3" value='8'>8</span>
+	        <span class="key col-md-3" value='9'>9</span>
+	        <span class="key clear-key right-key col-md-3" value='C'>C</span>
+	        <span class="key col-md-3" value='4'>4</span>
+	        <span class="key col-md-3" value='5'>5</span>
+	        <span class="key col-md-3" value='6'>6</span>
+	        <span class="key right-key col-md-3" value='/'>/</span>
+	        <span class="key col-md-3" value='1'>1</span>
+	        <span class="key col-md-3" value='2'>2</span>
+	        <span class="key col-md-3" value='3'>3</span>
+	        <span class="key right-key col-md-3" value='*'>*</span>
+	        <span class="key col-md-3" value='0'>0</span>
+	        <span class="key col-md-3" value='00'>00</span>
+	        <span class="key col-md-3" value='.'>.</span>
+	        <span class="key right-key col-md-3" value='+'>+</span>
+	        <span class="key equal-key col-md-3" value='='>=</span>
+	        <span class="key right-key col-md-3" value='-'>-</span>
+	    </div>
+	    <!-- money calculator -->
+	    <div id="calculator_money" class="col-md-6 col-md-push-3 calculator" style="">
+	    	<div id="" class="result"></div>
+	        <span class="key key-money col-md-3" value='100'>
+	        	<%= image_tag "euroCurrency/100e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key key-money col-md-3" value='50'>
+	        	<%= image_tag "euroCurrency/50e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key key-money col-md-3" value='20'>
+	        	<%= image_tag "euroCurrency/20e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key clear-key right-key col-md-3" value='C'>C</span>
+	        <span class="key key-money col-md-3" value='10'>
+	        	<%= image_tag "euroCurrency/10e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key key-money col-md-3" value='5'>
+	        	<%= image_tag "euroCurrency/5e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key key-money col-md-3" value='2'>
+	        	<%= image_tag "euroCurrency/2e", class: " img img-responsive" %>
+	      	</span>
+	        <span class="key right-key col-md-3" value='/'>/</span>
+	        <span class="key key-money col-md-3" value='1'>
+	        	<%= image_tag "euroCurrency/1e", class: " img img-responsive" %>
+	        </span>
+	         <span class="key key-money col-md-3" value='.50'>
+	        	<%= image_tag "euroCurrency/50c", class: " img img-responsive" %>
+	        </span>
+	        <span class="key key-money col-md-3" value='.20'>
+	        	<%= image_tag "euroCurrency/20c", class: " img img-responsive" %>
+	        </span>
+	        <span class="key right-key col-md-3" value='*'>*</span>
+	        <span class="key key-money col-md-3" value='.10'>
+	        	<%= image_tag "euroCurrency/10c", class: " img img-responsive" %>
+	        </span>
+	        <span class="key key-money col-md-3" value='.5'>
+	        	<%= image_tag "euroCurrency/5c", class: " img img-responsive" %>
+	        </span>
+	        <span class="key key-money col-md-3" value='.'>.</span>
+	        <span class="key right-key col-md-3" value='+'>+</span>
+	        <span class="key equal-key col-md-3" value='='>=</span>
+	        <span class="key right-key col-md-3" value='-'>-</span>
+	    </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            var displayValue = '0';   
+            $('.result').text(displayValue);
+ 
+            $('.key').each(function(index, key){       
+                $(this).click(function(e){
+                    if(displayValue == '0') displayValue = '';
+                    if($(this).text() == 'C'){
+                        displayValue = '0';
+                        $('.result').text(displayValue);
+                    }
+                    else if($(this).text() == '='){
+                        try{
+                            displayValue = eval(displayValue);
+                            $('.result').text(displayValue);
+                            displayValue = '0';
+                        }
+                        catch (e){
+                            displayValue = '0';
+                            $('.result').text('ERROR');
+                        }               
+                    }
+                    else{
+                        displayValue += $(this).attr('value');
+                        //alert("adding + " + displayValue);
+                        $('.result').text(displayValue);
+                    }
+                    e.preventDefault()
+                })
+            })
+
+            $('.numberCalcBtn').click(function(){
+            	$('#arrow1').css("visibility", "visible");
+            	$('#arrow2').css("visibility", "hidden");
+            	$('.calculatorMain').css("background-color", "#78CBC3");
+            	$('#calculator_number').toggleClass("hidden");
+            	$('#calculator_money').toggleClass("hidden");
+            });
+            $('.moneyCalcBtn').click(function(){
+            	$('#arrow2').css("visibility", "visible");
+            	$('#arrow1').css("visibility", "hidden");
+            	$('.calculatorMain').css("background-color", "#7b69eb");
+            	$('#calculator_money').toggleClass("hidden");
+            	$('#calculator_number').toggleClass("hidden");
+            });
+        })
+</script>
